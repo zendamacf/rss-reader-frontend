@@ -10,9 +10,9 @@
         </tr>
       </thead>
       <tbody>
-        <tr v-for="article in articles" v-bind:key="article.guid">
+        <tr v-for="article in articles" v-bind:key="article.id">
           <td><img :src="article.image"></td>
-          <td>{{ article.title }}</td>
+          <td>{{ article.name }}</td>
           <td>{{ article.description }}</td>
           <td>{{ article.published }}</td>
         </tr>
