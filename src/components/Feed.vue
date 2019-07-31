@@ -1,50 +1,43 @@
 <template>
-  <div>
-    <table>
-      <thead>
-        <tr>
-          <th>&nbsp;</th>
-          <th>Name</th>
-          <th>Description</th>
-          <th>Date</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr v-for="article in articles" v-bind:key="article.id">
-          <td><img :src="article.image"></td>
-          <td>{{ article.name }}</td>
-          <td>{{ article.description }}</td>
-          <td>{{ article.published }}</td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
+  <section class="section">
+    <div class="list is-hoverable">
+      <a class="list-item" v-for="article in articles" v-bind:key="article.id">
+        <img class="favicon" :src="article.image">
+        <span>{{ article.name }}</span>
+        <span>{{ article.published }}</span>
+      </a>
+    </div>
+  </section>
 </template>
 
 <script>
-import axios from 'axios';
+import axios from 'axios'
 
 export default {
   name: 'Feed',
-  data() {
+  data () {
     return {
-      articles: [],
-    };
+      articles: []
+    }
   },
   methods: {
-    getMessage() {
+    getMessage () {
       axios.get('/feeds')
         .then((resp) => {
-          this.articles = resp.data;
+          this.articles = resp.data
         })
         .catch((error) => {
           // eslint-disable-next-line
           console.error(error);
-        });
-    },
+        })
+    }
   },
-  created() {
-    this.getMessage();
-  },
-};
+  created () {
+    this.getMessage()
+  }
+}
 </script>
+
+<style scoped>
+.favicon { height: 24px; width: 24px; }
+</style>
