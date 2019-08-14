@@ -1,8 +1,7 @@
 <template>
   <section class="section">
     <div class="list is-hoverable">
-      <a class="list-item" v-for="article in articles" v-bind:key="article.id">
-        <img class="favicon" :src="article.image">
+      <a class="list-item" v-for="article in articles" v-bind:key="article.id" :href="article.url" target="_blank">
         <span>{{ article.name }}</span>
         <span>{{ article.published }}</span>
       </a>
