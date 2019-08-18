@@ -1,10 +1,15 @@
 <template>
   <section class="section">
     <div class="list is-hoverable">
-      <a class="list-item" v-for="article in articles" v-bind:key="article.id" :href="article.url" target="_blank">
+      <div class="list-item" v-for="article in articles" v-bind:key="article.id">
         <span>{{ article.name }}</span>
         <span>{{ article.published }}</span>
-      </a>
+        <a :href="article.url" target="_blank">
+          <span class="icon is-small is-right">
+            <i class="fas fa-external-link-alt"></i>
+          </span>
+        </a>
+      </div>
     </div>
   </section>
 </template>
@@ -36,7 +41,3 @@ export default {
   }
 }
 </script>
-
-<style scoped>
-.favicon { height: 24px; width: 24px; }
-</style>
