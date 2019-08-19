@@ -1,20 +1,25 @@
 <template>
   <section class="section">
-    <article class="message" v-for="article in articles" :key="article.id">
-      <div class="message-header">
-        <p>{{ article.name }} {{ article.published }}</p>
-        <button class="delete" aria-label="delete"></button>
-      </div>
-      <div class="message-body" v-html="article.content"></div>
-    </article>
+    <FeedArticle
+      v-for="article in articles"
+      :key="article.id"
+      :name="article.name"
+      :published="article.published"
+      :description="article.description"
+      :content="article.content"
+    ></FeedArticle>
   </section>
 </template>
 
 <script>
 import axios from 'axios'
+import FeedArticle from './FeedArticle.vue'
 
 export default {
   name: 'Feed',
+  components: {
+    FeedArticle
+  },
   data () {
     return {
       articles: []
@@ -37,3 +42,7 @@ export default {
   }
 }
 </script>
+
+<style scoped>
+.article-description {margin-bottom: 10px !important;}
+</style>
