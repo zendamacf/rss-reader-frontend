@@ -44,7 +44,3 @@ export default {
   }
 }
 </script>
-
-<style scoped>
-.article-description {margin-bottom: 10px !important;}
-</style>

@@ -1,17 +1,22 @@
 <template>
-  <article class="message" :class="readClass">
-    <div class="message-header">
-      <p>{{ name }} {{ published }}</p>
-      <button class="delete" aria-label="delete"></button>
-    </div>
-    <div class="message-body">
-      <div v-if="expanded" class="content article-description" v-html="content"></div>
+  <div class="card" :class="readClass">
+    <header class="card-header">
+      <p class="card-header-title">
+        <span>{{ name }}</span>
+        <br>
+        <span class="is-italic">{{ moment(published).format('DD/MM/YYYY') }}</span>
+      </p>
+    </header>
+    <div class="card-content">
+      <div v-if="expanded" class="content" v-html="content"></div>
       <div v-else>
-        <div class="content article-description" v-html="description"></div>
-        <a class="is-italic" v-on:click="showBody">Read More</a>
+        <div class="content" v-html="description"></div>
       </div>
     </div>
-  </article>
+    <footer class="card-footer">
+      <a class="card-footer-item" v-on:click="showBody">Read More</a>
+    </footer>
+  </div>
 </template>
 
 <script>
@@ -54,9 +59,3 @@ export default {
   }
 }
 </script>
-
-<style scoped>
-.message.is-read .message-header {
-  background-color: #c0cbd6;
-}
-</style>

@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import axios from 'axios'
+import moment from 'moment'
 import FlashMessage from '@smartweb/vue-flash-message'
 import App from './App.vue'
 import router from './router'
@@ -7,6 +8,7 @@ import store from './store/store'
 import 'bulma/css/bulma.css'
 
 Vue.config.productionTip = false
+Vue.prototype.moment = moment
 
 Vue.use(FlashMessage, {
   time: 3000
