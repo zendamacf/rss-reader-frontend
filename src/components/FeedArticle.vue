@@ -15,9 +15,12 @@
 </template>
 
 <script>
+import axios from 'axios'
+
 export default {
   name: 'Article',
   props: {
+    id: Number,
     name: String,
     published: String,
     description: String,
@@ -31,6 +34,15 @@ export default {
   methods: {
     showBody () {
       this.expanded = true
+      this.markRead()
+    },
+    markRead () {
+      let articleid = this.id
+      axios({
+        url: '/article/markread',
+        data: { articleid: articleid },
+        method: 'POST'
+      })
     }
   }
 }

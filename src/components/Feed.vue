@@ -3,6 +3,7 @@
     <FeedArticle
       v-for="article in articles"
       :key="article.id"
+      :id="article.id"
       :name="article.name"
       :published="article.published"
       :description="article.description"
@@ -27,7 +28,7 @@ export default {
   },
   methods: {
     getMessage () {
-      axios.get('/feeds')
+      axios.get('/feed')
         .then((resp) => {
           this.articles = resp.data
         })
