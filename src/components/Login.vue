@@ -32,22 +32,22 @@
 </template>
 
 <script>
-import { AUTH_LOGIN } from '../store/store';
+import { AUTH_LOGIN } from '../store/store'
 
 export default {
   name: 'Login',
-  data() {
+  data () {
     return {
       username: '',
-      password: '',
-    };
+      password: ''
+    }
   },
   methods: {
-    login() {
-      const { username, password } = this;
+    login () {
+      const { username, password } = this
       this.$store.dispatch(AUTH_LOGIN, { username, password })
         .then(() => {
-          this.$router.push('/');
+          this.$router.push('/')
         })
         .catch((error) => {
           if (error.response.status === 401) {
@@ -57,11 +57,11 @@ export default {
               message: 'Please check your credentials.',
               clickable: false,
               icon: `${process.env.BASE_URL}error-triangle.png`,
-              iconClass: 'image is-96x96',
-            });
+              iconClass: 'image is-96x96'
+            })
           }
-        });
-    },
-  },
-};
+        })
+    }
+  }
+}
 </script>

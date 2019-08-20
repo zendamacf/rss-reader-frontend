@@ -8,13 +8,13 @@
 export default {
   name: 'Logout',
   methods: {
-    logout() {
-      localStorage.removeItem('user-token');
-      this.$router.push('/login');
-    },
+    logout () {
+      localStorage.removeItem('user-token')
+      this.$router.push('/login')
+    }
   },
-  created() {
-    this.logout();
-  },
-};
+  created () {
+    this.logout()
+  }
+}
 </script>
