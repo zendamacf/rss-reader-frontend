@@ -1,5 +1,5 @@
 <template>
-  <article class="message">
+  <article class="message" :class="readClass">
     <div class="message-header">
       <p>{{ name }} {{ published }}</p>
       <button class="delete" aria-label="delete"></button>
@@ -24,16 +24,23 @@ export default {
     name: String,
     published: String,
     description: String,
-    content: String
+    content: String,
+    read: Boolean
   },
   data () {
     return {
       expanded: false
     }
   },
+  computed: {
+    readClass () {
+      return (this.read) ? 'is-read' : ''
+    }
+  },
   methods: {
     showBody () {
       this.expanded = true
+      this.read = true
       this.markRead()
     },
     markRead () {
@@ -47,3 +54,9 @@ export default {
   }
 }
 </script>
+
+<style scoped>
+.message.is-read .message-header {
+  background-color: #c0cbd6;
+}
+</style>

@@ -8,6 +8,7 @@
       :published="article.published"
       :description="article.description"
       :content="article.content"
+      :read="article.read"
     ></FeedArticle>
   </section>
 </template>
