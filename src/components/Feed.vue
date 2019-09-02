@@ -9,6 +9,7 @@
       :description="article.description"
       :content="article.content"
       :read="article.read"
+      v-on:article-remove="remove"
     ></FeedArticle>
   </section>
 </template>
@@ -37,6 +38,12 @@ export default {
           // eslint-disable-next-line
           console.error(error);
         })
+    },
+    remove (id) {
+      this.articles.splice(
+        this.articles.findIndex(article => article.id === id),
+        1
+      )
     }
   },
   created () {

@@ -6,6 +6,11 @@
         <br>
         <span class="is-italic">{{ moment(published).format('DD/MM/YYYY') }}</span>
       </p>
+      <a class="card-header-icon" aria-label="Dismiss" v-on:click="dismiss">
+        <span class="icon">
+          <i class="fas fa-times"></i>
+        </span>
+      </a>
     </header>
     <div class="card-content">
       <div v-if="expanded" class="content" v-html="content"></div>
@@ -47,6 +52,10 @@ export default {
       this.expanded = true
       this.read = true
       this.markRead()
+    },
+    dismiss () {
+      this.markRead()
+      this.$emit('article-remove', this.id)
     },
     markRead () {
       let articleid = this.id
