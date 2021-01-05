@@ -10,7 +10,7 @@
   "dependencies": {
     "@smartweb/vue-flash-message": "^0.4.1",
     "@vue/eslint-config-standard": "^4.0.0",
-    "axios": "^0.18.1",
+    "axios": "^0.21.1",
     "bulma": "^0.7.5",
     "core-js": "^2.6.5",
     "moment": "^2.24.0",
